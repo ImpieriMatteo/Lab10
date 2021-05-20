@@ -38,8 +38,14 @@ public class River {
 		return flowAvg;
 	}
 
-	public void setFlowAvg(double flowAvg) {
-		this.flowAvg = flowAvg;
+	public void setFlowAvg() {
+		if(!this.flows.isEmpty()) {
+			double somma = 0.0;
+			for(Flow f : this.flows)
+				somma += f.getFlow();
+			
+			this.flowAvg = somma/this.flows.size();
+		}
 	}
 
 	public void setFlows(List<Flow> flows) {
